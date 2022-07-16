@@ -1,3 +1,5 @@
-export default function (message: string): void {
+const logSuccess = (message: string): void => {
   console.log(message);
-}
+};
+
+export default logSuccess;

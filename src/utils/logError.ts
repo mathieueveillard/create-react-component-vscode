@@ -1,6 +1,8 @@
 import * as vscode from "vscode";
 
-export default function (error: string): void {
+const logError = (error: string): void => {
   console.error(error);
   vscode.window.showInformationMessage(error);
-}
+};
+
+export default logError;
