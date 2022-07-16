@@ -4,18 +4,22 @@ import createFolder from "../utils/createFolder";
 import createFile from "../utils/createFile";
 import inputAndProceed, { ProceedFunction } from "../utils/inputAndProceed";
 
-const loadTemplate = async (templatePath: string): Promise<string> => {
+const loadTemplate = async (
+  templatePath: string,
+  functionName: string
+): Promise<string> => {
   const template = await promises.readFile(templatePath, "utf-8");
   const compiledTemplate = Handlebars.compile(template);
-  return compiledTemplate({});
+  return compiledTemplate({ functionName });
 };
 
 const createFileFromTemplate = async (
   folderName: string,
   fileNameWithExtension: string,
-  templatePath: string
+  templatePath: string,
+  functionName: string
 ): Promise<void> => {
-  const text = await loadTemplate(templatePath);
+  const text = await loadTemplate(templatePath, functionName);
   await createFile(`${folderName}/${fileNameWithExtension}`, text);
 };
 
@@ -24,11 +28,18 @@ const proceed: ProceedFunction = async ({ path, name }) => {
   await createFolder(folderName);
   await createFileFromTemplate(
     folderName,
-    "index.tsx",
-    `${__dirname}/templates/component/index.tsx.handlebars`
+    "index.ts",
+    `${__dirname}/templates/function/index.ts.handlebars`,
+    name
+  );
+  await createFileFromTemplate(
+    folderName,
+    "index.spec.ts",
+    `${__dirname}/templates/function/index.spec.ts.handlebars`,
+    name
   );
 };
 
-const createReactComponent = inputAndProceed(proceed);
+const createFunction = inputAndProceed(proceed);
 
-export default createReactComponent;
+export default createFunction;

@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/mathieueveillard/create-react-component-vscode.git"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.65.0"
   },
@@ -14,7 +14,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:create-react-component.generate"
+    "onCommand:create-react-component.generate",
+    "onCommand:create-function.generate"
   ],
   "main": "./out/main.js",
   "contributes": {
@@ -23,6 +24,10 @@
         {
           "command": "create-react-component.generate",
           "title": "Create React component"
+        },
+        {
+          "command": "create-function.generate",
+          "title": "Create function"
         }
       ]
     },
@@ -30,6 +35,10 @@
       {
         "command": "create-react-component.generate",
         "title": "Create React component"
+      },
+      {
+        "command": "create-function.generate",
+        "title": "Create function"
       }
     ]
   },
@@ -57,9 +66,9 @@
     "eslint": "^8.9.0",
     "glob": "^7.2.0",
     "mocha": "^9.2.1",
-    "prettier": "^2.5.1",
-    "typescript": "^4.5.5",
-    "vsce": "^2.6.7"
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4",
+    "vsce": "^2.9.3"
   },
   "dependencies": {
     "handlebars": "^4.7.7"

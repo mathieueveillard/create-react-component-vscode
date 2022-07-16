@@ -16,8 +16,8 @@ And you're done!
 This extension is not meant to be published. Instead, you'll want to:
 
 1. Fork this repository
-2. Make your own modifications (`npm run compile:watch`, then `F5`), in particular editing or adding templates (`src/templates`)
-3. Package the extension (`npm run package`) and install the resulting `.vsix` file on your computer.
+2. Make your own modifications (`npm run compile:watch`, then `F5`)
+3. Package the extension (`npm run package`) and install the resulting `.vsix` file on your computer (Extensions > ... > Install from VSIX)
 
 ## Additional resources
 
